@@ -19,7 +19,7 @@ const db = mysql.createConnection(
     password: process.env.DBpassword,
     database: process.env.DBdatabase
   },
-  console.log(`Connected to the ${process.env.DBdatabaase} database.`)
+  console.log(`Connected to ${process.env.DBdatabase} database, user ${process.env.DBuser}`)
 );
 
 // Default response for any other request (Not Found)
@@ -28,5 +28,5 @@ app.use((req, res) => {
   });
   
   app.listen(PORT, () => {
-    console.log(`Server is listening to the port ${PORT}`);
+    console.log(`Express server is listening to port ${PORT}`);
   });
