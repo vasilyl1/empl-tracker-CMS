@@ -1,6 +1,9 @@
 const express = require('express'); // import and require express.js
 const mysql = require('mysql2'); // import and require mysql2
+const cTable = require('console.table'); // console.table package to print tables
 require('dotenv').config(); // define and read env configuration
+const {department,role,employee} = require('./lib/classes'); // defines the current record as objects
+const current_department = new department;
 
 const PORT = process.env.PORT || 3001; // server port configuration
 const app = express();
