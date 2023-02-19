@@ -1,16 +1,13 @@
-const express = require('express'); // import and require express.js
 const mysql = require('mysql2'); // import and require mysql2
 const cTable = require('console.table'); // console.table package to print tables
 require('dotenv').config(); // define and read env configuration
 const {department,role,employee} = require('./lib/classes'); // defines the current record as objects
-const current_department = new department;
-
-const PORT = process.env.PORT || 3001; // server port configuration
-const app = express();
-
-// Express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+const CMS_init = require ('./lib/inq'); // user interview functionality
+const active_record = { // active selected record
+    department : new department,
+    role : new role,
+    employee : new employee
+};
 
 // Connect to database
 const db = mysql.createConnection(
@@ -25,11 +22,5 @@ const db = mysql.createConnection(
   console.log(`Connected to ${process.env.DBdatabase} database, user ${process.env.DBuser}`)
 );
 
-// Default response for any other request (Not Found)
-app.use((req, res) => {
-    res.status(404).end();
-  });
-  
-  app.listen(PORT, () => {
-    console.log(`Express server is listening to port ${PORT}`);
-  });
+// start CMS system
+CMS_init();
