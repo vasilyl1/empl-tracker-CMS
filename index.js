@@ -1,5 +1,4 @@
 const mysql = require('mysql2'); // import and require mysql2
-const cTable = require('console.table'); // console.table package to print tables
 require('dotenv').config(); // define and read env configuration
 const {department,role,employee} = require('./lib/classes'); // defines the current record as objects
 const CMS_init = require ('./lib/inq'); // user interview functionality
@@ -23,4 +22,4 @@ const db = mysql.createConnection(
 );
 
 // start CMS system
-CMS_init();
+CMS_init(db);
