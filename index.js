@@ -7,7 +7,6 @@ const active_request = { // the request the user is working on
     role : new role,
     employee : new employee
 };
-
 // Connect to database
 active_request.department.db = mysql.createConnection(
   {
@@ -20,6 +19,8 @@ active_request.department.db = mysql.createConnection(
   },
   console.log(`Connected to ${process.env.DBdatabase} database, user ${process.env.DBuser}`)
 );
+active_request.role.db = active_request.department.db;
+active_request.employee.db = active_request.department.db;
 
 // start CMS system
 CMS_init(active_request);
