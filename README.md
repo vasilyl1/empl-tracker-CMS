@@ -29,7 +29,21 @@ Step 2: navigate to the cloned repositary directory, for that run: cd empl-track
 
 Step 3: install the libraries required by the application by running: NPM install
 
-Step 4: launch the app by typing: node index.js 
+Step 4: make sure mySQL is installed on your machine
+
+Step 5: Launch mySQL server, once launched, run the following commands from ./db directory:
+source schema.sql
+source seeds.sql
+
+Step 6: in the app root directory, create .env configuration file. At least the following variables need to be defined:
+DBhost=localhost
+DBuser=root
+DBpassword=
+DBdatabase=CMSDB
+
+Add the password for your mySQL server there.
+
+Step 4: launch the app by typing from terminal: node index.js 
 
 ## Usage
 
